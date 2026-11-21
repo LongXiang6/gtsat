@@ -1,0 +1,47 @@
+# Grand Terrain Biome Dispatcher - satellite mod for grandterrain (NeoForge 1.21.1)
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+issueTrackerURL="https://example.invalid/gtsat/issues"
+
+[[mods]]
+modId="gtsat"
+version="0.1.2"
+authors="Grand Terrain"
+logoFile="lambda_logo.png"
+displayName = "GrandTerrain Biome Dispatcher"
+description = "按地貌、温湿度和高度，在主世界、下界和末地为原版与模组群系分配生成位置。"
+
+[[mixins]]
+config="gtsat.mixins.json"
+
+[[dependencies.gtsat]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.gtsat]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,1.21.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.gtsat]]
+modId="grandterrain"
+type="required"
+versionRange="[0.9.1,)"
+ordering="AFTER"
+side="BOTH"
+
+# lithostitched is a SOFT dependency: inject mode needs it, scheduler mode does not.
+# If it is missing, gtsat logs an ERROR and falls back to scheduler (preset required)
+# instead of crashing.
+[[dependencies.gtsat]]
+modId="lithostitched"
+type="optional"
+versionRange="[1.8.0,)"
+ordering="AFTER"
+side="BOTH"
